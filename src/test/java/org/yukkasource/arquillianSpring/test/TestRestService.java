@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.web.client.RestTemplate;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by tito on 3/2/14.
  */
@@ -27,6 +29,6 @@ public class TestRestService {
         RestTemplate template = new RestTemplate();
         String res = template.getForObject(
                 "http://localhost:8080/arquillianSpring/restService?param=parameter", String.class);
-        System.out.println(res);
+        assertEquals("{\"a\":\"parameter\"}",res);
     }
 }
